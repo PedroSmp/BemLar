@@ -14,11 +14,11 @@ export function Header() {
 
       {/* 2. Centro: Links de Navegação */}
       <nav className="hidden md:flex items-center gap-6">
-        <a href="#" className="px-4 py-1.5 bg-blue-200 text-blue-900 rounded-full font-semibold text-sm">
-          Home
-        </a>
-        <a href="#" className="text-slate-600 hover:text-blue-600 font-medium text-sm transition-colors">
+        <a href="#servicos" className="px-4 py-1.5 bg-blue-200 text-blue-900 rounded-full font-semibold text-sm">
           Nossos serviços
+        </a>
+        <a href="#valores" className="text-slate-600 hover:text-blue-600 font-medium text-sm transition-colors">
+          Nossos valores
         </a>
         <a href="#" className="text-slate-600 hover:text-blue-600 font-medium text-sm transition-colors">
           Quem somos

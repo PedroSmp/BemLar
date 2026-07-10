@@ -1,6 +1,6 @@
 export function Valores() {
   return (
-    <section className="w-full my-12">
+    <section id= "valores" className="w-full my-12">
       {/* Bloco principal com fundo azul claro e cantos arredondados */}
       <div className="bg-[#BCE0FD]/60 rounded-2xl p-8 md:p-12 flex flex-col items-center">
         

@@ -27,7 +27,7 @@ const dadosDestaques = [
 
 export function Destaques(){
     return(
-        <section className="w-full py-16 flex flex-col items-center">
+        <section id="servicos" className="w-full py-16 flex flex-col items-center">
             {/*titulo*/}
             <div className="text-center max-w-2xl mb-12">
                 <h2 className="text-3xl font-extrabold text-[#2F3A56] mb-4">Destaques</h2>
