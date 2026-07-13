@@ -1,7 +1,7 @@
 export function Chamada() {
     return (
         <section className="w-full flex justify-center mb-24 mt-8">
-            <div classNAme="bg-white border border-gray-100 shadow-md rounded-xl p-10 w-full max-w-4xl flex flex-col items-center text-center">
+            <div className="bg-white border border-gray-100 shadow-md rounded-xl p-10 w-full max-w-4xl flex flex-col items-center text-center">
                 <h2 className="text-xl md:text-2xl font-bold text-[#2F3A56] mb-3">
                     Tem vontade de se juntar a nós nessa missão?
                 </h2>
