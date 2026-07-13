@@ -1,12 +1,17 @@
+import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
+import { ChatModal } from '../components/ChatModal'
 import { getServicoPorId } from '../data/servicos'
 
 export function ServicoDetalhePage() {
   // useParams() lê o ":id" que veio na URL (ex: /servico/2 -> id = "2")
   const { id } = useParams()
   const servico = getServicoPorId(id)
+
+  // Controla se o modal de conversa está aberto ou fechado
+  const [chatAberto, setChatAberto] = useState(false)
 
   // Se o id não existir na nossa lista, mostramos uma mensagem em vez de quebrar a página
   if (!servico) {
@@ -127,13 +132,30 @@ export function ServicoDetalhePage() {
           <button className="px-6 py-2.5 bg-[#369BE9] text-white rounded-md font-semibold hover:bg-blue-600 transition-colors">
             Aceitar serviço
           </button>
-          <button className="px-6 py-2.5 bg-[#57C78E] text-white rounded-md font-semibold hover:bg-emerald-500 transition-colors">
+          <button
+            onClick={() => setChatAberto(true)}
+            className="px-6 py-2.5 bg-[#57C78E] text-white rounded-md font-semibold hover:bg-emerald-500 transition-colors"
+          >
             Conversar
           </button>
         </div>
       </main>
 
       <Footer />
+
+      {/* Modal de conversa — só aparece quando chatAberto é true */}
+      <ChatModal
+        aberto={chatAberto}
+        aoFechar={() => setChatAberto(false)}
+        cliente={servico.cliente}
+        mensagensIniciais={[
+          {
+            autor: 'cliente',
+            texto:
+              'Olá, bom dia, tudo bem?\nQueria saber se dava pra você vir cedo, aí você me avisa que eu te busco no terminal.',
+          },
+        ]}
+      />
     </div>
   )
 }

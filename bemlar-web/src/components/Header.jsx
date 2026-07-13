@@ -46,10 +46,10 @@ export function Header() {
           >
             Serviços
           </Link>
-          <Link to="/minhas-financas" className={`${linkBase} ${linkInativo}`}>
+          <Link to="/minhas-financas" className={`${linkBase} ${location.pathname === '/minhas-financas' ? linkAtivo : linkInativo}`}>
             Minhas finanças
           </Link>
-          <Link to="/agenda" className={`${linkBase} ${linkInativo}`}>
+          <Link to="/agenda" className={`${linkBase} ${location.pathname === '/agenda' ? linkAtivo : linkInativo}`}>
             Agenda
           </Link>
         </nav>
