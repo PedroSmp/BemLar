@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { dadosServicos } from '../data/servicos'
+import iconLimpezaPesada from '../assets/limpeza-pesada.svg'
+import iconJanela from '../assets/janela.svg'
+import iconRoupas from '../assets/roupas.svg'
+import iconLocalizacao from '../assets/localizacao.svg'
 
 // Dados das estatísticas do topo (depois isso pode vir de uma API)
 const dadosStats = [
@@ -9,6 +13,12 @@ const dadosStats = [
   { id: 3, valor: '4.0', tendencia: '⭐', label: 'Sua avaliação média' },
   { id: 4, valor: '2', tendencia: '🕐', label: 'Aguardando...' },
 ]
+
+const iconesPorCategoria = {
+  Pesada: iconLimpezaPesada,
+  Vidros: iconJanela,
+  Roupas: iconRoupas,
+}
 
 // Categorias das abas
 const categorias = ['Pesada', 'Vidros', 'Roupas']
@@ -104,9 +114,10 @@ export function Dashboard() {
               </div>
 
               <div className="flex items-center justify-between mt-4">
-                <div className="w-9 h-9 flex items-center justify-center rounded-full bg-[#57C78E] text-white">
-                  🧹
-                </div>
+                <img
+                    src={iconesPorCategoria[servico.categoria]}
+                    alt={servico.categoria}
+                    className="w-9 h-9"/>
                 {/* Link (não button!) porque isso deve abrir uma PÁGINA nova, não um modal */}
                 <Link
                   to={`/servico/${servico.id}`}//pega o id do serviço e coloca na URL la dos dados mockados

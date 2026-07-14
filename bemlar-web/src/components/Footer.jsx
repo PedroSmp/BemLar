@@ -1,3 +1,8 @@
+import iconYoutube from '../assets/yt.svg'
+import iconTiktok from '../assets/tkk.svg'
+import iconInstagram from '../assets/insta.svg'
+import logoBemLar from '../assets/logo.svg'
+
 export function Footer() {
   // Background azul claro esticado de ponta a ponta
   return (
@@ -9,7 +14,7 @@ export function Footer() {
         {/* Lado Esquerdo: Logo */}
         <div className="flex items-center gap-2">
           <div className="flex items-center justify-center w-10 h-10 bg-white rounded-md text-emerald-600 font-bold shadow-sm">
-            🏡
+            <img src={logoBemLar} alt="Logo da BemLar"/>
           </div>
           <span className="text-xl font-bold text-[#1A3B5C]">BemLar</span>
         </div>
@@ -26,9 +31,15 @@ export function Footer() {
           <p className="font-bold text-[#1A3B5C] mb-3 text-sm">Nossas redes sociais:</p>
           <div className="flex gap-4">
             {/* Ícones provisórios */}
-            <div className="w-10 h-10 bg-[#1A3B5C] rounded-full text-white flex items-center justify-center text-xs font-bold cursor-pointer hover:bg-blue-800 transition-colors">YT</div>
-            <div className="w-10 h-10 bg-[#1A3B5C] rounded-full text-white flex items-center justify-center text-xs font-bold cursor-pointer hover:bg-blue-800 transition-colors">TK</div>
-            <div className="w-10 h-10 bg-[#1A3B5C] rounded-full text-white flex items-center justify-center text-xs font-bold cursor-pointer hover:bg-blue-800 transition-colors">IG</div>
+          <a href="#" target="_blank" rel="noreferrer" className="hover:opacity-80 transition-opacity">
+              <img src={iconYoutube} alt="icone do YouTube" className="w-10 h-10" />
+          </a>
+          <a href="#" target="_blank" rel="noreferrer" className="hover:opacity-80 transition-opacity">
+              <img src={iconTiktok} alt="icone do tiktok" className="w-10 h-10" />
+          </a>
+          <a href="#" target="_blank" rel="noreferrer" className="hover:opacity-80 transition-opacity">
+              <img src={iconInstagram} alt="icone do instagram" className="w-10 h-10" />
+          </a>
           </div>
         </div>
 

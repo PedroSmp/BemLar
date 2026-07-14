@@ -1,5 +1,8 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/Autenticacao'
+import logoBemLar from '../assets/logo.svg'
+import iconConfiguracoes from '../assets/configuracoes.svg'
+import iconPerfil from '../assets/perfil.svg'
 
 export function Header() {
   const location = useLocation()
@@ -26,7 +29,7 @@ export function Header() {
       {/* 1. Lado Esquerdo: Logo */}
       <Link to="/" className="flex items-center gap-2 cursor-pointer">
         <div className="flex items-center justify-center w-8 h-8 bg-blue-100 rounded-md text-emerald-600 font-bold">
-          🏡
+          <img src={logoBemLar} alt="Logo da BemLar"/>
         </div>
         <span className="text-xl font-bold text-slate-800">BemLar</span>
       </Link>
@@ -80,14 +83,14 @@ export function Header() {
             className="w-9 h-9 flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 transition-colors text-lg"
             title="Configurações"
           >
-            ⚙️
+            <img src={iconConfiguracoes} alt="icone de configurações" className="w-5 h-5" />
           </button>
           <button
             onClick={handleLogout}
             className="w-9 h-9 flex items-center justify-center rounded-full bg-[#369BE9] text-white hover:bg-blue-600 transition-colors"
             title="Sair"
           >
-            👤
+            <img src={iconPerfil} alt="icone de perfil" className="w-5 h-5" />
           </button>
         </div>
       ) : (
