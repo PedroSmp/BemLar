@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { ChatModal } from '../components/ChatModal'
+import { Carrossel } from '../components/Carrossel'
+import { ImagemZoomModal } from '../components/ImgAberta'
 import { getServicoPorId } from '../data/servicos'
 
 export function ServicoDetalhePage() {
@@ -12,6 +14,9 @@ export function ServicoDetalhePage() {
 
   // Controla se o modal de conversa está aberto ou fechado
   const [chatAberto, setChatAberto] = useState(false)
+
+  // Controla o modal de zoom das fotos: guarda qual imagem foi clicada (ou null se fechado)
+  const [indiceZoom, setIndiceZoom] = useState(null)
 
   // Se o id não existir na nossa lista, mostramos uma mensagem em vez de quebrar a página
   if (!servico) {
@@ -37,15 +42,30 @@ export function ServicoDetalhePage() {
         {/* Botão de voltar */}
         <Link
           to="/dashboard"
-          className="inline-flex items-center text-[#1A3B5C] text-2xl mb-6"
+          className="inline-flex items-center text-[#1A3B5C] mb-6 hover:text-[#369BE9] transition-colors"
+          title="Voltar para os serviços"
         >
-          ‹
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={3}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
         </Link>
 
-        {/* Imagem de capa (placeholder por enquanto) */}
-        <div className="w-full h-72 bg-gray-200 rounded-xl flex items-center justify-center text-gray-400 mb-8">
-          Foto do serviço
-        </div>
+        {/* Carrossel de fotos do serviço */}
+        <Carrossel
+          imagens={servico.imagens}
+          aoClicarImagem={(indice) => setIndiceZoom(indice)}
+        />
 
         {/* Título */}
         <h1 className="text-3xl font-extrabold text-[#1A3B5C] mb-8">
@@ -155,6 +175,14 @@ export function ServicoDetalhePage() {
               'Olá, bom dia, tudo bem?\nQueria saber se dava pra você vir cedo, aí você me avisa que eu te busco no terminal.',
           },
         ]}
+      />
+
+      {/* Modal de zoom das fotos — abre quando indiceZoom não é null */}
+      <ImagemZoomModal
+        aberto={indiceZoom !== null}
+        aoFechar={() => setIndiceZoom(null)}
+        imagens={servico.imagens}
+        indiceInicial={indiceZoom ?? 0}
       />
     </div>
   )

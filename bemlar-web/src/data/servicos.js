@@ -1,4 +1,11 @@
 // Dados mockados dos serviços.
+import casaImagem1 from '../assets/02-casa.jpg'
+import casaImagem2 from '../assets/03-casa.jpg'
+import casaImagem3 from '../assets/04-casa.jpg'
+
+import vidroImagem1 from '../assets/vidro-sujo-1.jpg'
+import vidroImagem2 from '../assets/vidro-sujo-2.jpg'
+import vidroImagem3 from '../assets/vidro-sujo-3.jpg'
 
 export const dadosServicos = [
   {
@@ -8,6 +15,7 @@ export const dadosServicos = [
     local: 'Vila Madalena, SP',
     preco: 'R$350',
     periodo: '/diária',
+    imagens: [casaImagem1, casaImagem2, casaImagem3],
     descricaoCurta:
       'Preciso de alguém que faça uma limpeza nos vidros da minha sala...',
     descricaoCompleta:
@@ -33,6 +41,7 @@ export const dadosServicos = [
     local: 'Pinheiros, SP',
     preco: 'R$200',
     periodo: '/diária',
+    imagens: [vidroImagem1, vidroImagem2, vidroImagem3],
     descricaoCurta:
       'Preciso de alguem que faça uma limpeza completa de vidros com muita sujeira acumulada...',
     descricaoCompleta:

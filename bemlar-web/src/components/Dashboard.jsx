@@ -85,9 +85,11 @@ export function Dashboard() {
             className="flex flex-col md:flex-row gap-6 bg-white border border-gray-200 rounded-xl p-4"
           >
             {/* Imagem (placeholder cinza por enquanto) */}
-            <div className="w-full md:w-64 h-48 bg-gray-200 rounded-lg flex items-center justify-center text-gray-400 text-sm shrink-0">
-              Foto do serviço
-            </div>
+            <img
+                  src={servico.imagens[0]}
+                  alt={servico.titulo}
+                  className="w-full md:w-64 h-48 object-cover rounded-lg shrink-0"
+            />
 
             {/* Informações */}
             <div className="flex-1 flex flex-col justify-between">
